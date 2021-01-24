@@ -76,3 +76,12 @@
     background-color: #00ff959d;
     color: ivory;
 }
+
+#contact_table{
+    color: ivory;
+    background-color:#292929;
+    vertical-align: middle;
+    margin: auto;
+    width: 45%;
+    font-size: 20px;
+}

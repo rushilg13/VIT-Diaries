@@ -1,5 +1,5 @@
 import pymongo
-cluster = pymongo.MongoClient("mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority")
+cluster = pymongo.MongoClient("mongodb+srv://VIT_Admin:<password>@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority")
 db = cluster["vitd"]
 collection = db["posts"]
 post = [{

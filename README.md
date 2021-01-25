@@ -8,3 +8,18 @@ Tech Stack:<br>
 MongoDB<br>
 HTML, CSS<br>
 Flask<br>
+
+# How to run
+<br>
+clone repository using<br>
+git clone https://github.com/rushilg13/VIT-Diaries.git
+<br>
+Open fetch.py <br>
+add MongoDB Password in the URI
+<br>
+Open cmd in folder location and type<br>
+python fetch.py
+<br>
+hit enter<br>
+Open browser and go to http://127.0.0.1:5000/ 
+<br>

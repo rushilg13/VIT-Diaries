@@ -12,5 +12,21 @@ def hello():
     # print(post_all)
     return render_template("index.html", post_all = post_all)
 
+@app.route('/about')
+def aboutus():
+    return render_template("about.html")
+
+@app.route('/news')
+def newss():
+    return render_template("news.html")
+
+@app.route('/contact')
+def contactus():
+    return render_template("contact.html")
+
+@app.route('/newpost')
+def newpost():
+    return render_template("newpost.html")
+
 if __name__ == "__main__":
     app.run(debug=True)

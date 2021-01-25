@@ -14,11 +14,11 @@
 
 <body>
     <div class="topnav">
-        <a href="index.html">Home</a>
-        <a class="active" href="newpost.html">New Post</a>
-        <a href="news.html">News</a>
-        <a href="contact.html">Contact</a>
-        <a href="about.html">About</a>
+        <a href="/">Home</a>
+        <a class="active" href="/newpost">New Post</a>
+        <a href="/news">News</a>
+        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
     </div>
 
     <div class="container">
@@ -27,8 +27,12 @@
         </div>
         <form action="/home.html" method="GET" id="form1">
             <div class="form_level">
-                <label for="textarea1">Post-Content: &nbsp; </label>
-                <textarea id="textarea1" name="post-content" rows="25" cols="170"></textarea>
+                <label for="textarea1">Post-Author: &nbsp; </label>
+                <textarea id="textarea1" name="post-author" rows="5" cols="170"></textarea>
+            </div>
+            <div class="form_level">
+                <label for="textarea2">Post-Content: &nbsp; </label>
+                <textarea id="textarea2" name="post-content" rows="20" cols="170"></textarea>
             </div>
             <button type="submit" form="form1" value="Submit" id="button_sub">Post</button>
         </form>

@@ -8,7 +8,7 @@ user_collection = pymongo.collection.Collection(db, 'posts')
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    post_all = (list(user_collection.find({}, {'_id':0})))
+    post_all = (list(user_collection.find({}, {'_id':0}).sort("_id", -1)))
     # print(post_all)
     return render_template("index.html", post_all = post_all)
 
@@ -30,8 +30,7 @@ def newpost():
     text = request.form.get('post-content')
     print(author)
     print(text)
-    if (author != None or text !=None):
-        user_collection.insert_one({'Author': author, 'Text':text})
+    user_collection.insert_one({'Author': author, 'Text':text})
     return render_template("newpost.html")
 
 if __name__ == "__main__":

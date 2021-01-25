@@ -11,15 +11,15 @@ Flask<br>
 
 # How to run
 <br>
-clone repository using<br>
+Clone repository using<br>
 git clone https://github.com/rushilg13/VIT-Diaries.git
-<br>
+<br><br>
 Open fetch.py <br>
-add MongoDB Password in the URI
-<br>
+Add MongoDB Password in the URI
+<br><br>
 Open cmd in folder location and type<br>
 python fetch.py
-<br>
-hit enter<br>
+<br><br>
+Hit enter<br>
 Open browser and go to http://127.0.0.1:5000/ 
 <br>

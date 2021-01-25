@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect
 from flask_pymongo import pymongo
 app = Flask(__name__)
-CONNECTION_STRING = "mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
+CONNECTION_STRING = "mongodb+srv://VIT_Admin:<password>@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_database('vitd')
 user_collection = pymongo.collection.Collection(db, 'posts')

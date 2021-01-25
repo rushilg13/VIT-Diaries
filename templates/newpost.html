@@ -27,15 +27,20 @@
                 New Post
             </div>
             <form action="{{ url_for('newpost') }}" method="POST" id="form1">
-                <div class="form_level">
-                    <label for="textarea1">Post-Author: &nbsp; </label>
-                    <textarea id="textarea1" name="post-author" rows="5" cols="170"></textarea>
-                </div>
-                <div class="form_level">
-                    <label for="textarea2">Post-Content: &nbsp; </label>
-                    <textarea id="textarea2" name="post-content" rows="20" cols="170"></textarea>
-                </div>
-                <button type="submit" form="form1" value="Submit" id="button_sub">Post</button>
+                <table class="new_table" style="margin-left:10%;">
+                    <tr>
+                        <td><label for="form.author" style="color: ivory;">Post-Author: &nbsp; </label></td>
+                        <td>{{ form.author }}</td>
+                    </tr>
+                    <tr>
+                        <td><label for="form.text" style="color: ivory;">Post-Content: &nbsp; </label></td>
+                        <td>{{form.text(cols="130", rows="20")}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td><button type="submit" form="form1" value="Submit" id="button_sub">Post</button></td>
+                    </tr>
+                </table>
             </form>
         </div>
     </body>

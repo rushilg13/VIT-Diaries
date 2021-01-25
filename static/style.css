@@ -46,6 +46,7 @@
   .container{
       margin-top: 30px;
       background-color: #202124;
+      color: ivory;
   }
 
 #new{
@@ -54,7 +55,7 @@
     font-size: 38px;
 }
 .form_level{
-    color: ivory;
+    color: red;
     font-size: 20px;
     display:flex; 
     flex-direction: row; 

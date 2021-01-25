@@ -7,7 +7,7 @@
 
 <header>
     VIT DIARIES
-    <link type="text/css" rel="stylesheet" href="style.css">
+    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
 </header>
@@ -20,12 +20,11 @@
         <a href="contact.html">Contact</a>
         <a href="about.html">About</a>
     </div>
-    <div class="post_box">
-        Demo Post1
-    </div>
-
-    <div class="post_box">
-        Demo Post2
-    </div>
+    {% for post in post_all %}
+        <div class="post_box">
+            Author : {{post.Author}}<br/><br/>
+            {{post.Text}}<br/>
+        </div>
+    {% endfor %}
 </body>
 </html>

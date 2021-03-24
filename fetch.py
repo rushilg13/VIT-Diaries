@@ -2,8 +2,9 @@ from flask import Flask, render_template, request, redirect
 from flask_pymongo import pymongo
 from flask_wtf import Form
 from wtforms import StringField
-from wtforms.widgets import TextArea
 from wtforms.validators import InputRequired
+from wtforms.widgets import TextArea
+
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Cant_say'
@@ -12,7 +13,7 @@ class inputform(Form):
     author = StringField('Author', validators=[InputRequired()])
     text = StringField('Content', validators=[InputRequired()], widget=TextArea())
 
-CONNECTION_STRING = "mongodb+srv://VIT_Admin:<password>@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
+CONNECTION_STRING = "mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_database('vitd')
 user_collection = pymongo.collection.Collection(db, 'posts')

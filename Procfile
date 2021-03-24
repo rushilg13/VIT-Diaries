@@ -1,1 +1,1 @@
-web: gunicorn app:fetch
+web: gunicorn fetch:app

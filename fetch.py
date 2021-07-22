@@ -1,17 +1,8 @@
 from flask import Flask, render_template, request, redirect
 from flask_pymongo import pymongo
-from flask_wtf import Form
-from wtforms import StringField
-from wtforms.validators import InputRequired
-from wtforms.widgets import TextArea
-
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'Cant_say'
-
-class inputform(Form):
-    author = StringField('Author', validators=[InputRequired()])
-    text = StringField('Content', validators=[InputRequired()], widget=TextArea())
 
 CONNECTION_STRING = "mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
 client = pymongo.MongoClient(CONNECTION_STRING)
@@ -21,7 +12,6 @@ user_collection = pymongo.collection.Collection(db, 'posts')
 @app.route('/', methods=['GET', 'POST'])
 def home():
     post_all = (list(user_collection.find({}, {'_id':0}).sort("_id", -1)))
-    # print(post_all)
     return render_template("index.html", post_all = post_all)
 
 @app.route('/about')
@@ -41,8 +31,6 @@ def newpost():
     if request.method=="POST":
         author = request.form['author']
         text = request.form['post']
-        print(author)
-        print(text)
         user_collection.insert_one({'Author': author, 'Text':text})
         return redirect("/")
     return render_template("newpost.html")

@@ -9,6 +9,9 @@ MongoDB<br>
 HTML, CSS<br>
 Flask<br>
 
+# Deployed At
+https://vit-diaries.herokuapp.com/
+
 # How to run
 <br>
 Clone repository using<br>

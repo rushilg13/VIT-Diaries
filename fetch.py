@@ -38,18 +38,14 @@ def contactus():
 
 @app.route('/newpost', methods=['GET', 'POST'])
 def newpost():
-    form = inputform()
     if request.method=="POST":
-        author = form.author.data
-        text = form.text.data
+        author = request.form['author']
+        text = request.form['post']
         print(author)
         print(text)
-        if form.validate_on_submit():
-            return redirect('/')
-        else:
-            user_collection.insert_one({'Author': author, 'Text':text})
+        user_collection.insert_one({'Author': author, 'Text':text})
         return redirect("/")
-    return render_template("newpost.html", form=form)
+    return render_template("newpost.html")
 
 if __name__ == "__main__":
     app.run(debug=True)

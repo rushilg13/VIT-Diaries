@@ -1,4 +1,11 @@
 /* Add a black background color to the top navigation */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+  }
+
 .topnav {
     background-color: #292929;
     overflow: hidden;
@@ -26,9 +33,20 @@
     color: white;
   }
 
-  body{
-      background-color: #121212;
+  html {
+    width: 100%;
+    height: 100%;
   }
+
+  body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #F3F3F3;
+  }
+  
 
   header{
       color: #BB86FC;

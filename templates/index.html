@@ -1,16 +1,162 @@
 <!DOCTYPE html>
+
 <head>
     <title>
         VIT DIARIES
     </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
-<header>
-    VIT DIARIES
-    <link type="text/css" rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&display=swap" rel="stylesheet">
-</header>
+<h1 style="color: #BB86FC;">VIT DIARIES</h1>
+
+<style type="text/css">
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    html {
+        width: 100%;
+        height: 100%;
+    }
+
+    body {
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+        height: 100%;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+    }
+
+    .topnav {
+        background-color: #292929;
+        overflow: hidden;
+    }
+
+    /* Style the links inside the navigation bar */
+    .topnav a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+    }
+
+    /* Change the color of links on hover */
+    .topnav a:hover {
+        background-color: #5F6368;
+        color: ivory;
+    }
+
+    /* Add a color to the active/current link */
+    .topnav a.active {
+        background-color: #BB86FC;
+        color: white;
+    }
+
+    .wrapper {
+        width: 100%;
+        justify-items: center;
+        position: absolute;
+        z-index: 1;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+    }
+
+    h1 {
+        position: relative;
+        margin-top: 0;
+        padding-top: 35px;
+        color: white;
+        font-family: "Times New Roman";
+        font-size: 28px;
+        font-weight: 300;
+        text-align: center;
+        z-index: 5;
+    }
+
+    h1:after {
+        content: "";
+        position: relative;
+        top: 110px;
+        left: calc(50% - 1px);
+        width: 2px;
+        height: 1px;
+        background-color: white;
+        opacity: 0;
+        transition: 0.9s ease;
+    }
+
+    .card {
+        width: 350px;
+        height: 500px;
+        background-color: #292B33;
+        background-image: url(https://images.unsplash.com/photo-1432839318976-b5c5785ce43f?dpr=2&fit=crop&fm=jpg&h=900&ixlib=rb-0.3.5&q=50&w=1700);
+        background-size: cover;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 10px;
+    }
+
+    .card .i-quote {
+        position: relative;
+        content: "";
+        width: 32px;
+        height: 32px;
+        top: calc(50% - 16px);
+        left: calc(50% - 16px);
+        background-image: url(https://cdn.pbrd.co/images/21KhDkyI.png);
+        z-index: 5;
+        opacity: 0.1;
+    }
+
+    .card__content {
+        position: relative;
+        padding: 75px 35px 0 35px;
+        color: white;
+        font-family: "Roboto", sans-serif;
+        font-weight: 300;
+        text-align: center;
+        opacity: 0;
+        z-index: 5;
+        transition: opacity 0.9s;
+    }
+
+    .js-trigger h1:after {
+        content: "";
+        position: relative;
+        top: 110px;
+        left: calc(50% - 75px);
+        width: 150px;
+        height: 1px;
+        background-color: white;
+        opacity: 0.3;
+    }
+
+    .js-trigger .card__overlay {
+        width: 620px;
+        height: 620px;
+        top: calc(50% - 310px);
+        left: calc(50% - 310px);
+    }
+
+    .js-trigger .card__content {
+        opacity: 1;
+    }
+
+    .js-trigger .i-quote {
+        opacity: 0;
+    }
+</style>
 
 <body>
     <div class="topnav">
@@ -20,11 +166,25 @@
         <a href="/contact">Contact</a>
         <a href="/about">About</a>
     </div>
-    {% for post in post_all %}
-        <div class="post_box">
-            Author : {{post.Author}}<br/><br/>
-            {{post.Text}}<br/>
+
+    <h1>Click on cards!</h1>
+
+    <div class="wrapper">
+        {% for post in post_all %}
+        <div class="card">
+            <h1>Author : {{post.Author}}</h1>
+            <div class="card__content">
+                {{post.Text}}
+            </div>
         </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
+
 </body>
+<script>
+    $('.card').on('click', function () {
+        $(this).toggleClass('js-trigger');
+    });
+</script>
+
 </html>

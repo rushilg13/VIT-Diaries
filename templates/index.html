@@ -1,190 +1,191 @@
 <!DOCTYPE html>
+<html lang="en" dir="ltr">
 
 <head>
-    <title>
-        VIT DIARIES
-    </title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> VIT DIARIES </title>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 
-<h1 style="color: #BB86FC;">VIT DIARIES</h1>
-
-<style type="text/css">
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
     * {
-        padding: 0;
         margin: 0;
+        padding: 0;
         box-sizing: border-box;
-        -webkit-font-smoothing: antialiased;
+        font-family: 'Poppins', sans-serif;
     }
-
-    html {
-        width: 100%;
-        height: 100%;
-    }
-
+    
     body {
+        background: #ecf0f3;
+    }
+    
+    nav {
+        width: 100%;
+        padding: 12px 0;
+        background: #ecf0f3;
+        box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1, inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+    }
+    
+    nav .menu {
+        max-width: 1270px;
+        margin: auto;
+        padding: 0 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .menu .logo a {
+        font-size: 28px;
+        font-weight: 600;
+        text-decoration: none;
+        color: #31344b;
+    }
+    
+    .menu ul {
+        list-style: none;
+        display: flex;
+    }
+    
+    .menu ul a {
+        margin: 0 8px;
+        text-decoration: none;
+        font-size: 18px;
+        color: #31344b;
+        font-weight: 400;
+        display: inline-flex;
+        padding: 10px 12px;
+        box-shadow: -3px -3px 7px #ffffff, 3px 3px 5px #ceced1;
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .menu ul a:hover:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        box-shadow: inset -3px -3px 7px #ffffff, inset 3px 3px 5px #ceced1;
+    }
+    
+    .menu ul a:hover {
+        color: #3498db;
+    }
+    
+    nav label.btn {
+        color: #31344b;
+        font-size: 18px;
+        cursor: pointer;
+        display: none;
+    }
+    
+    nav label.cancel {
+        position: absolute;
+        top: 25px;
+        right: 30px;
+    }
+    
+    #check {
+        display: none;
+    }
+    
+    @media (max-width:940px) {
+        .menu ul {
+            display: block;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            max-width: 400px;
+            padding-top: 45px;
+            height: 100%;
+            background: #ecf0f3;
+            box-shadow: 0 5px 10px #b0b0b5;
+            z-index: 12;
+            transition: all 0.3s ease;
+        }
+        .menu ul a {
+            display: block;
+            font-size: 23px;
+            width: 100%;
+            margin-top: 30px;
+            box-shadow: none;
+            text-align: center;
+        }
+        .menu ul a:hover:before {
+            box-shadow: none;
+        }
+        nav label.bars {
+            display: block;
+        }
+        #check:checked~label.bars {
+            display: none;
+        }
+        #check:checked~ul label.cancel {
+            display: block;
+        }
+        #check:checked~ul {
+            left: 0;
+        }
+    }
+    
+    .element {
+        display: table;
+        margin-right: auto;
+        margin-left: auto;
+        background-color: #ecf0f3;
+        box-shadow: 12px 12px 16px 0 rgba(0, 0, 0, 0.25), -8px -8px 12px 0 rgba(255, 255, 255, 0.3);
+        border-radius: 50px;
+        justify-content: center;
+        width: 600px;
+        padding: 50px;
+    }
+    
+    hr {
+        border-color: #d8d8d8 transparent #ecf0f3 transparent;
+        border-style: solid;
+        height: 0;
+    }
+    
+    footer {
+        display: table;
+        text-align: center;
         margin-left: auto;
         margin-right: auto;
-        width: 100%;
-        height: 100%;
-        justify-content: center;
-        align-items: center;
-        background: #000;
-    }
-
-    .topnav {
-        background-color: #292929;
-        overflow: hidden;
-    }
-
-    /* Style the links inside the navigation bar */
-    .topnav a {
-        float: left;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-        font-size: 17px;
-    }
-
-    /* Change the color of links on hover */
-    .topnav a:hover {
-        background-color: #5F6368;
-        color: ivory;
-    }
-
-    /* Add a color to the active/current link */
-    .topnav a.active {
-        background-color: #BB86FC;
-        color: white;
-    }
-
-    .wrapper {
-        width: 100%;
-        justify-items: center;
-        position: absolute;
-        z-index: 1;
-        overflow: hidden;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-    }
-
-    h1 {
-        position: relative;
-        margin-top: 0;
-        padding-top: 35px;
-        color: white;
-        font-family: "Times New Roman";
-        font-size: 28px;
-        font-weight: 300;
-        text-align: center;
-        z-index: 5;
-    }
-
-    h1:after {
-        content: "";
-        position: relative;
-        top: 110px;
-        left: calc(50% - 1px);
-        width: 2px;
-        height: 1px;
-        background-color: white;
-        opacity: 0;
-        transition: 0.9s ease;
-    }
-
-    .card {
-        width: 350px;
-        height: 500px;
-        background-color: #292B33;
-        background-image: url(https://images.unsplash.com/photo-1432839318976-b5c5785ce43f?dpr=2&fit=crop&fm=jpg&h=900&ixlib=rb-0.3.5&q=50&w=1700);
-        background-size: cover;
-        cursor: pointer;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        margin: 10px;
-    }
-
-    .card .i-quote {
-        position: relative;
-        content: "";
-        width: 32px;
-        height: 32px;
-        top: calc(50% - 16px);
-        left: calc(50% - 16px);
-        background-image: url(https://cdn.pbrd.co/images/21KhDkyI.png);
-        z-index: 5;
-        opacity: 0.1;
-    }
-
-    .card__content {
-        position: relative;
-        padding: 75px 35px 0 35px;
-        color: white;
-        font-family: "Roboto", sans-serif;
-        font-weight: 300;
-        text-align: center;
-        opacity: 0;
-        z-index: 5;
-        transition: opacity 0.9s;
-    }
-
-    .js-trigger h1:after {
-        content: "";
-        position: relative;
-        top: 110px;
-        left: calc(50% - 75px);
-        width: 150px;
-        height: 1px;
-        background-color: white;
-        opacity: 0.3;
-    }
-
-    .js-trigger .card__overlay {
-        width: 620px;
-        height: 620px;
-        top: calc(50% - 310px);
-        left: calc(50% - 310px);
-    }
-
-    .js-trigger .card__content {
-        opacity: 1;
-    }
-
-    .js-trigger .i-quote {
-        opacity: 0;
     }
 </style>
 
 <body>
-    <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/newpost">New Post</a>
-        <a href="/news">News</a>
-        <a href="/contact">Contact</a>
-        <a href="/about">About</a>
-    </div>
-
-    <h1>Click on cards!</h1>
-
-    <div class="wrapper">
-        {% for post in post_all %}
-        <div class="card">
-            <h1>Author : {{post.Author}}</h1>
-            <div class="card__content">
-                {{post.Text}}
-            </div>
+    <nav>
+        <div class="menu">
+            <input type="checkbox" id="check">
+            <div class="logo"><a href="/">VIT Diaries</a></div>
+            <ul>
+                <label class="btn cancel" for="check"><i class="fas fa-times"></i></label>
+                <li><a href="/">Home</a></li>
+                <li><a href="/newpost">New Post</a></li>
+                <li><a href="/news">News</a></li>
+                <li><a href="/contact">Contact</a></li>
+                <li><a href="/about">About Us</a></li>
+            </ul>
+            <label for="check" class="btn bars"><i class="fas fa-bars"></i></label>
         </div>
-        {% endfor %}
+        </div>
+    </nav>
+    <br> <br>{% for post in post_all %}
+    <div class="element">
+        <h1 style="text-align: center;">Author : {{post.Author}}</h1>
+        <div style="text-align: justify;"> {{post.Text}} </div>
     </div>
-
+    <br><br> {% endfor %}
 </body>
-<script>
-    $('.card').on('click', function () {
-        $(this).toggleClass('js-trigger');
-    });
-</script>
+<hr>
+<footer>
+    Made with ❤️ by Rushil Goel
+</footer>
 
 </html>

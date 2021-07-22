@@ -144,6 +144,13 @@
         text-align: center;
         margin-left: auto;
         margin-right: auto;
+        min-height: calc(100vh - 95px);
+    }
+    
+    form {
+        padding: 16px;
+        width: 320px;
+        margin: 0 auto;
     }
     
     .segment {
@@ -155,7 +162,8 @@
     }
     
     button,
-    input {
+    input,
+    textarea {
         border: 0;
         outline: 0;
         font-size: 16px;
@@ -171,7 +179,8 @@
         width: 100%;
     }
     
-    input {
+    input,
+    textarea {
         margin-right: 8px;
         box-shadow: inset 2px 2px 5px #BABECC, inset -5px -5px 10px #FFF;
         width: 100%;
@@ -181,7 +190,8 @@
         -webkit-appearance: none;
     }
     
-    input:focus {
+    input:focus,
+    textarea:focus {
         box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
     }
     
@@ -200,6 +210,12 @@
     
     button:active {
         box-shadow: inset 1px 1px 2px #BABECC, inset -1px -1px 2px #FFF;
+    }
+    
+    button.green {
+        display: block;
+        width: 100%;
+        color: #AE1100;
     }
 </style>
 
@@ -228,12 +244,13 @@
         </div>
 
         <input type="text" placeholder="Author" name="author" id="author">
-        <input type="text" placeholder="Post" name="post" id="post">
+        <textarea name="post" id="post" rows="4" cols="50" placeholder="  Post"></textarea>
         <br>
-        <button class="red" type="submit"><i class="icon ion-md-lock"></i> Add Post</button>
+        <button class="green" type="submit"><i class="icon ion-md-lock"></i> Add Post</button>
     </form>
 
 </body>
+<br>
 <hr>
 <footer>
     Made with ❤️ by Rushil Goel

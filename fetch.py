@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from flask_pymongo import pymongo
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Cant_say'
+app.config['SECRET_KEY'] = os.environ["SECRET"]
 
-CONNECTION_STRING = "mongodb+srv://VIT_Admin:pizza@vitdiaries.tpuku.mongodb.net/vitd?retryWrites=true&w=majority"
+CONNECTION_STRING = os.environ["MONGO_STRING"]
 client = pymongo.MongoClient(CONNECTION_STRING)
 db = client.get_database('vitd')
 user_collection = pymongo.collection.Collection(db, 'posts')
